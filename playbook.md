@@ -31,3 +31,31 @@
     ansible-playbook -i /etc/ansible/hosts  playbook1.yml
 
   ![image](image/Screenshot_13.png)
+
+
+- Ví dụ 
+  - Nội dùng file playbook1.yml
+```
+- hosts: node1
+  become: true
+  tasks:
+        - name: Install latest version of chrony
+          apt: name=chrony update_cache=yes state=latest
+        - name: show status chronyd
+          command: systemctl status chronyd
+- hosts: node2
+  become: true
+  tasks:
+          - name: update os
+            command: apt update -y
+          - name: install package addition
+            apt: name=epel-release name=git name=byobu name=wget name=vim name=pwgen state=present
+          - name: install chrony
+            apt: name=chrony state=present
+          - name: install java-1.8.0-openjdk-headless.x86_64
+            apt: name=java-1.8.0-openjdk-headless.x86_64 state=present
+```
+
+  - Chạy file playbook.yml
+
+    ![image](image/Screenshot_14.png)
