@@ -74,35 +74,4 @@ ansible node option []
   
        ansible node2 -m user -a "name=foo1 shell=/bin/bash  groups=root"
 
-# Tạo module tùy biến
-
-- Thư mục chứa Ansible Module 
-  - Tại /etc/ansible/ansible.cfg cấu hình giá trị ‘library’ để chỉ định Ansible thư mục sẽ load các module tuỳ biến 
-  ![image](image/Screenshot_12.png)
-
-  - Tạo thư mục chứa module tùy biến
-
-        mkdir -p /usr/share/my_modules/
-  
-  - Tạo module và nội dung module
-
-        touch /usr/share/my_modules/user_node1
-
-     - Nội dung 
-     ``` 
-     - hosts: node1
-       become: True
-       task:
-       - name: create user foo1
-          user:
-          name: foo1
-          password: {{ 'password' | password_hash('sha512') }}
-          shell: /bin/bash
-          home: /home/foo1
-          groups: root
-          uid: 1010
-```
-
-
-
-
+# 
