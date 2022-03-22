@@ -1,0 +1,11 @@
+    - name: install mariadb
+      apt:
+        name:
+          - mariadb-server
+          - python3-pymysql
+        state: latest
+    - name: start mariadb
+      service:
+        name: mariadb
+        enabled: true
+        state: started
