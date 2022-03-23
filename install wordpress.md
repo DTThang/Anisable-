@@ -313,5 +313,104 @@ vi wordpress/playbook.yml
 ```
 
 - Chạy playbook
-
+```
 ansible-playbook wordpress/playbook.yml
+```
+
+Kết quả 
+```
+[root@localhost ~]# ansible-playbook wordpress/playbook.yml
+[WARNING]: While constructing a mapping from /root/wordpress/roles/php/tasks/main.yml, line 4, column 3, found a duplicate dict key (command). Using last
+defined value only.
+
+PLAY [node1] ****************************************************************************************************************************************************
+
+TASK [apache : Install HTTP Packages] ***************************************************************************************************************************
+ok: [node1]
+
+TASK [Start apache2 service] ************************************************************************************************************************************
+ok: [node1]
+
+TASK [apache : Create Apache Document Root] *********************************************************************************************************************
+ok: [node1]
+
+TASK [apache : Set up Apache VirtualHost] ***********************************************************************************************************************
+ok: [node1]
+
+TASK [php : Install PHP Remi Repository] ************************************************************************************************************************
+ok: [node1]
+
+TASK [php : Enable PHP Remi Repository] *************************************************************************************************************************
+[WARNING]: Consider using the dnf module rather than running 'dnf'.  If you need to use command because dnf is insufficient you can add 'warn: false' to this
+command task or set 'command_warnings=False' in ansible.cfg to get rid of this message.
+changed: [node1]
+
+TASK [php : Install PHP Extensions] *****************************************************************************************************************************
+changed: [node1] => (item=php)
+ok: [node1] => (item=php-curl)
+changed: [node1] => (item=php-gd)
+ok: [node1] => (item=php-mbstring)
+ok: [node1] => (item=php-xml)
+changed: [node1] => (item=php-xmlrpc)
+changed: [node1] => (item=php-soap)
+changed: [node1] => (item=php-intl)
+changed: [node1] => (item=php-zip)
+
+TASK [mysql : Install MySQL Packages] ***************************************************************************************************************************
+changed: [node1] => (item=mysql-server)
+changed: [node1] => (item=php-mysqlnd)
+changed: [node1] => (item=python3-PyMySQL)
+
+TASK [Start mysqld service] *************************************************************************************************************************************
+changed: [node1]
+
+TASK [mysql : Set MySQL root Password] **************************************************************************************************************************
+[WARNING]: Module did not set no_log for update_password
+changed: [node1]
+
+TASK [mysql : Creates database for WordPress] *******************************************************************************************************************
+changed: [node1]
+
+TASK [mysql : Create MySQL user for WordPress] ******************************************************************************************************************
+changed: [node1]
+
+TASK [wordpress : Download and unpack latest WordPress] *********************************************************************************************************
+changed: [node1]
+
+TASK [wordpress : Set ownership] ********************************************************************************************************************************
+changed: [node1]
+
+TASK [wordpress : Set permissions for directories] **************************************************************************************************************
+changed: [node1]
+
+TASK [wordpress : Set permissions for files] ********************************************************************************************************************
+changed: [node1]
+
+TASK [wordpress : Copy sample config file] **********************************************************************************************************************
+changed: [node1]
+
+TASK [wordpress : Update WordPress config file] *****************************************************************************************************************
+changed: [node1] => (item={'regexp': "define\\( 'DB_NAME', '(.)+' \\);", 'line': "define( 'DB_NAME', 'wpdb' );"})
+changed: [node1] => (item={'regexp': "define\\( 'DB_USER', '(.)+' \\);", 'line': "define( 'DB_USER', 'wpuser' );"})
+changed: [node1] => (item={'regexp': "define\\( 'DB_PASSWORD', '(.)+' \\);", 'line': "define( 'DB_PASSWORD', '1' );"})
+
+TASK [wordpress : Restart httpd service] ************************************************************************************************************************
+changed: [node1]
+
+TASK [firewall : Disable SELinux Permanently (Reboot Required)] *************************************************************************************************
+[WARNING]: SELinux state temporarily changed from 'enforcing' to 'permissive'. State change will take effect next reboot.
+changed: [node1]
+
+TASK [firewall : Disable SELinux Without Reboot] ****************************************************************************************************************
+changed: [node1]
+
+TASK [firewall : Configure Firewall] ****************************************************************************************************************************
+ok: [node1]
+
+TASK [firewall : Reload Firewall] *******************************************************************************************************************************
+changed: [node1]
+
+PLAY RECAP ******************************************************************************************************************************************************
+node1                      : ok=23   changed=17   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+```
