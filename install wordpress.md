@@ -145,15 +145,16 @@ vi wordpress/roles/php/tasks/main.yml
   - Nội dung
 ```
 - name: Install PHP Remi Repository
-  yum: name=http://rpms.remirepo.net/enterprise/remi-release-8.rpm update_cache=yes state=latest
- 
+  yum: name=https://rpms.remirepo.net/enterprise/remi-release-8.rpm update_cache=yes state=latest
+
 - name: Enable PHP Remi Repository
-  command: apt module reset php -y
-  command: apt module enable php:remi-7.4 -y
- 
+  command: dnf module reset php -y
+  command: dnf module enable php:remi-8.1 -y
+
 - name: Install PHP Extensions
   yum: name={{ item }} update_cache=yes state=latest
   loop: "{{ php_modules }}"
+
 ```
 # 6. Tạo playbook cho Mysql
 
