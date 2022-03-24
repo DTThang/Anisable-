@@ -1,72 +1,16 @@
-# Giới thiệu
+# 1. Giới thiệu
 - Ansible Galaxy là một trang web miễn phí để tìm kiếm, tải xuống, xếp hạng và xem xét tất cả các tính chất được cộng đồng Ansible phát triển. 
 - Mặc định trang web Ansible Galaxy là https://galaxy.ansible.com
-- Làm quen với ansible-galaxy
-  - Cấu trúc: `ansible-galaxy [-h] [--version] [-v] TYPE ..`
-  - Tìm hiếm galaxy bằng công cụ 
 
-    `ansible-galaxy search "PHP for RedHat/CentOS/Fedora/Debian/Ubuntu" `
-  
-  Kết quả 
-
-```
-root@ansible:~# ansible-galaxy search "PHP for RedHat/CentOS/Fedora/Debian/Ubuntu"
-
-Found 26 roles matching your search:
-
- Name                            Description
- ----                            -----------
- alikins.php                     PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
- apham0001.php                   PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
- bpresles.php                    PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
- call_learning.php               PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
- e1mo.php                        PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
- entanet_devops.ansible_role_php PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
- esperdyne.php                   PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
- frogasia.ansible-role-php       PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
- geerlingguy.php                 PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
- heremias.php                    PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
- jhu-sheridan-libraries.php      PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
- jibsan94.ansible_php            PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
- KAMI911.ansible_role_php        PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
- manishjuneja.php                PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
- mbaran0v.ansible_role_php       PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
- monsieurbiz.geerlingguy_php     PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
- nesh-younify.ansible-role-php   PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
- net2grid.php                    PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
- nycrecords.php                  PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
- thom8.ansible-role-php          PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
- tobiasehlert.ansible_role_php   PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
- vahubert.php                    PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
- Vaizard.mage_php                PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
- viasite-ansible.php             PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
- vvgelder.ansible-role-php       PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
- xylodev.php                     PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
-```
-
-  - Chọn một role từ danh sách, download role để sử dụng trong playbook
-
-  `ansible-galaxy install geerlingguy.php `
-
-Kết quả
-
-```
-root@ansible:~# ansible-galaxy install geerlingguy.php
-- downloading role 'php', owned by geerlingguy
-- downloading role from https://github.com/geerlingguy/ansible-role-php/archive/4.8.0.tar.gz
-- extracting geerlingguy.php to /root/.ansible/roles/geerlingguy.php
-- geerlingguy.php (4.8.0) was installed successfully
-```
-
-# Một số option chung  
+# 2. Một số option chung  
 
 option | description 
 ---|---
 --version | hiển thị tên phiên bản, vị trí file cấu hình, đường dẫn module đã cấu hình, vị trí module, vị trí thực thi và thoát
 -h, --help | hiển thi phần trợ giúp 
 -v, --verbose| chế độ verboss 
-# Actions
-## collection
+# 3. Actions
+## 3.1 collection
 - Thực hiện hành động trên Ansible Galaxy collection. Phải được kết hợp với một hoạt động khác nhưu init/install như danh sách bên dưới.
   - **collection init**
 
@@ -125,7 +69,7 @@ option | description
 -s  <API_SERVER>, --server  <API_SERVER> | URL máy chủ Api Galaxy
 
 
-## Role
+## 3.2 Role
 
 - Thưc thiện hành động trên ansible galaxy role. Phải được kết hợp với một hành động kkhác như init/install/delete
   - **role init**
@@ -244,3 +188,86 @@ option | description
 -p, --roles-path| đường dẫn đến thư mục chứa role. Mặc định là tệp có thể ghi đầu tiên được định cấu hình qua DEFAULT_ROLES_PATH:~/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles
 -r  <ROLE_FILE>, --role-file  <ROLE_FILE> | Tệp chứa danh sách các role sẽ được nhập
 -s  <API_SERVER>, --server  <API_SERVER> | URL máy chủ Api Galaxy
+
+
+
+# Một số ví dụ  
+- Cấu trúc: `ansible-galaxy [-h] [--version] [-v] TYPE ..`
+- Tìm hiếm galaxy bằng công cụ 
+
+      ansible-galaxy search "PHP for RedHat/CentOS/Fedora/Debian/Ubuntu" 
+  
+Kết quả 
+
+```
+root@ansible:~# ansible-galaxy search "PHP for RedHat/CentOS/Fedora/Debian/Ubuntu"
+
+Found 26 roles matching your search:
+
+ Name                            Description
+ ----                            -----------
+ alikins.php                     PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
+ apham0001.php                   PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
+ bpresles.php                    PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
+ call_learning.php               PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
+ e1mo.php                        PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
+ entanet_devops.ansible_role_php PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
+ esperdyne.php                   PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
+ frogasia.ansible-role-php       PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
+ geerlingguy.php                 PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
+ heremias.php                    PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
+ jhu-sheridan-libraries.php      PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
+ jibsan94.ansible_php            PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
+ KAMI911.ansible_role_php        PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
+ manishjuneja.php                PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
+ mbaran0v.ansible_role_php       PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
+ monsieurbiz.geerlingguy_php     PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
+ nesh-younify.ansible-role-php   PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
+ net2grid.php                    PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
+ nycrecords.php                  PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
+ thom8.ansible-role-php          PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
+ tobiasehlert.ansible_role_php   PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
+ vahubert.php                    PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
+ Vaizard.mage_php                PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
+ viasite-ansible.php             PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
+ vvgelder.ansible-role-php       PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
+ xylodev.php                     PHP for RedHat/CentOS/Fedora/Debian/Ubuntu.
+```
+
+- Chọn một role từ danh sách, download role để sử dụng trong playbook
+
+      ansible-galaxy install geerlingguy.php
+
+Kết quả
+
+```
+root@ansible:~# ansible-galaxy install geerlingguy.php
+- downloading role 'php', owned by geerlingguy
+- downloading role from https://github.com/geerlingguy/ansible-role-php/archive/4.8.0.tar.gz
+- extracting geerlingguy.php to /root/.ansible/roles/geerlingguy.php
+- geerlingguy.php (4.8.0) was installed successfully
+```
+
+- Kiểm tra thông tin về role 
+
+      ansible-galaxy info geerlingguy.php
+
+  ![image](image/Screenshot_16.png)
+
+- Liệt kê các role được cài đặt trên hệ thống
+
+      ansible-galaxy list
+
+  ![image](image/Screenshot_17.png)
+
+- Tạo mấu role cơ bản 
+
+      ansible-galaxy init testdoc --force
+
+  ![image](image/Screenshot_18.png)
+
+
+
+
+
+
