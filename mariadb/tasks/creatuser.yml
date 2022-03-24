@@ -1,13 +1,36 @@
 ---
-- name: Ensure MariaDB users are present (or absent)
-  mysql_user:
-    name: "{{ item.name }}"
-    host: "{{ item.host | default('localhost') }}"
-    password: "{{ item.password }}"
-    priv: "{{ item.priv | default('*.*:USAGE') }}"
-    state: "{{ item.state | default('present') }}"
-    append_privs: "{{ item.append_privs | default('no') }}"
-    encrypted: "{{ item.encrypted | default('no') }}"
-    login_unix_socket: "{{ mariadb_unix_socket }}"
-  loop: "{{ mariadb_users }}"
-  no_log: true
+- name: create /root/.my.cnf with password credentials
+    blockinfile:
+      path: /root/.my.cnf
+      block: |
+        [hosts1]
+        user=root
+        password={{ mysql_root_password }}
+
+        [mysql]
+        user=root
+        password={{ mysql_root_password }}
+      create: yes
+      
+- name: "Mysql Configuration - Resetting RootPassword"
+    mysql_user:
+      login_user: root
+      login_password: ''
+      name: root
+      host_all: yes
+      password: "{{mysql_root_password}}"
+
+ - name: Create a new database with name 'test'
+    mysql_db:
+      login_user: root
+      login_password: "{{mysql_root_password}}"
+      login_unix_socket: /run/mysqld/mysqld.sock
+      name: test
+      state: present
+
+  - name: Create database user with name 'test' and password 'Test@1123' with all database privileges
+    mysql_user:
+      name: test
+      password: Test@1123
+      priv: '*.test:ALL'
+      state: present

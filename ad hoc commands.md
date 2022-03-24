@@ -74,4 +74,3 @@ ansible node option []
   
        ansible node2 -m user -a "name=foo1 shell=/bin/bash  groups=root"
 
-# 
