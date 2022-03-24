@@ -27,7 +27,6 @@ collection/
 │ └──  tasks/
 └──  tests/
 ```
-## 1.2 Ansible role
 
 # 2 HƯớng dẫn sử dụng ansible galaxy 
 - Cấu trúc: `ansible-galaxy [-h] [--version] [-v] TYPE ..`
@@ -95,7 +94,7 @@ root@ansible:~# ansible-galaxy install geerlingguy.php
 - geerlingguy.php (4.8.0) was installed successfully
 ```
   - Role đã được cài về máy và được lưu tại /root/.ansible/roles/geerlingguy.php
-  
+
 - 4. Di chuyển đến vị trí đặt role. Tạo file playbook.yml để chạy role vừa cài về máy với nội dung
 ```
 - host: node1
