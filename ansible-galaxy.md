@@ -93,6 +93,12 @@ root@ansible:~# ansible-galaxy install geerlingguy.php
 - extracting geerlingguy.php to /root/.ansible/roles/geerlingguy.php
 - geerlingguy.php (4.8.0) was installed successfully
 ```
+  - Liệt kê các role được cài đặt trên hệ thống
+
+      ansible-galaxy list 
+
+  ![image](image/Screenshot_17.png)
+    
   - Role đã được cài về máy và được lưu tại /root/.ansible/roles/geerlingguy.php
 
 - 4. Di chuyển đến vị trí đặt role. Tạo file playbook.yml để chạy role vừa cài về máy với nội dung
@@ -102,13 +108,6 @@ root@ansible:~# ansible-galaxy install geerlingguy.php
 ```
 
   - Chạy role với lệnh  `ansible-playbook /root/.ansible/playbook.yml `
-
-
-- Liệt kê các role được cài đặt trên hệ thống
-
-      ansible-galaxy list
-
-  ![image](image/Screenshot_17.png)
 
 
 # 3. Một số option chung  
