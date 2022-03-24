@@ -122,7 +122,7 @@ option | description
 - Thực hiện hành động trên Ansible Galaxy collection. Phải được kết hợp với một hoạt động khác nhưu init/install như danh sách bên dưới.
   - **collection init**
 
-    - Tạo khung xương cho một role hoặc collection tuân thủ định dạng của galaxy. Yêu cầu tên của role và collection, định dạng tên `<namespace>.<collection>`
+    - Tạo khung cho một role hoặc collection tuân thủ định dạng của galaxy. Yêu cầu tên của role và collection, định dạng tên `<namespace>.<collection>`
 
 
 option | description
@@ -181,7 +181,7 @@ option | description
 
 - Thưc thiện hành động trên ansible galaxy role. Phải được kết hợp với một hành động kkhác như init/install/delete
   - **role init**
-    - Tạo khung xương cho một role hoặc collection tuân thủ định dạng của galaxy. Yêu cầu tên của role và collection, định dạng tên `<namespace>.<collection>`
+    - Tạo khung cho một role hoặc collection tuân thủ định dạng của galaxy. Yêu cầu tên của role và collection, định dạng tên `<namespace>.<collection>`
 
 
 option | description
