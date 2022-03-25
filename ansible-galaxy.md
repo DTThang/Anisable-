@@ -328,4 +328,21 @@ root@ansible:~# tree .ansible/collections/ansible_collections
 
 ## 3.5 Test collection
 
-- Tạo file playbook.yml  
+- Tạo file playbook.yml  với nội dung 
+```
+- hosts: localhost
+  tasks:
+  - import_role:
+      name: redhat.workshop_demo_collection.hello_motd
+    vars:
+      friend_name: "thangdt"
+```
+
+
+- Nhập lệnh `ansible-playbook  playbook.yml`
+
+  ![image](image/Screenshot_19.png)
+
+- Nhập `cat /etc/motd`
+
+  ![image](image/Screenshot_20.png)
