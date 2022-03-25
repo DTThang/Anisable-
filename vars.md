@@ -55,12 +55,13 @@ name1: ansible
   - Tạo file playbook.yml và sử dụng biến name1.
 
 ```
----
-name: writing something
-hosts: localhost
-tasks:
-- include_vars: var_name.yml
-- debug: msg="My name is {{ name1 }}"
+
+- name: writing something
+  hosts: localhost
+  tasks:
+    - include_vars: var_name.yml
+    - debug: msg="My name is {{ name1 }}"
+
 ```
 
   - Chạy playbook 
