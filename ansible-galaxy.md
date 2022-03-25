@@ -343,6 +343,6 @@ root@ansible:~# tree .ansible/collections/ansible_collections
 
   ![image](image/Screenshot_19.png)
 
-- Nhập `cat /etc/motd`
+- Xác minh kết quả  `cat /etc/motd`
 
   ![image](image/Screenshot_20.png)
