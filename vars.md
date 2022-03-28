@@ -1,4 +1,4 @@
-# 1. Giối thiệu  
+# 1. Giới thiệu  
 - Trong ansible, các biến đóng vai trò rất quan trọng, đây là những điểm tham chiếu mà playbook sẽ tham chiếu đến để lấy dữ liệu. Biến có thể được định nghĩa ở nhiều nơi và bằng nhiều cách. 
 - Biến hoạt động trong ansible giống như một số ngôn ngữ lập trình khác.
 - Các biến có đặc điểm giống như tên hợp lệ, xác định biến, gọi biến, biến đặc biệt ansible, mảng biến và nhập từ các file khác
