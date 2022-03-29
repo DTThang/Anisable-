@@ -46,7 +46,7 @@ node2 ansible_host=192.168.70.52 ansible_port=22 ansible_user=root
 
 
 ## 2.3 Biến trong file và role 
-- Trong role ta có thể xác định biến trong một file  và đứa file vào trong playbook 
+- Trong role ta có thể xác định biến trong một file  và đưa file vào trong playbook 
 - Ví dụ
   - Tạo file var_name.yml với nội dung sau:
 ```
@@ -93,7 +93,7 @@ name1: ansible
 ## 2.5 Host and Group variables
 
 - Mặc dù có thể chỉ định biến trong file inventory, nhưng trong thực hành không khuyến khích lưu trữ các biến trong file inventory.
-- Trong một file biến host, biến chỉ đến một host trong file inventory. File biến host thường được lưu trữ trong thư mục /etc/ansible/host_vars.
+- Trong một file biến host, biến chỉ đến một host trong file inventory. File biến của host thường được lưu trữ trong thư mục /etc/ansible/host_vars.
 - File inventory dưới đây có 2 máy chủ sử dụng  2 server ntp khác nhau
 ```
 [web_servers]
@@ -101,7 +101,7 @@ webserver_1  ntp_server=uk.pool.ntp.org
 webserver_2  ntp_server=de.pool.ntp.org
 ```
 
-- Thay vì chỉ định chúng trong file inventory, tạo 2 file host var trong thư mục host_vars với tên phù hợp với chức năng của chúng  
+- Thay vì chỉ định chúng trong file inventory, tạo 2 file biết của host trong thư mục host_vars với tên trùng với tên của host với chức năng của chúng  
 ```
 # vi /etc/ansible/host_vars/webserver_1
 ---
@@ -174,7 +174,7 @@ ansible_port=22
   - (1): Các task trong role xem chủ sở hữu mặc định của role. Các task được xác định bên ngoài của role xem là giá trị mặc định cuối cùng của role 
   - (2): Biến xác định trong file inventory hoặc cung cấp bởi inventory động 
   - (3): Bao gồm các var được thêm bởi 'vars plugins' giống như host_var và group_var được hêm vào bởi vars plugin mặc định đi kèm với ansible
-  - (4): Khi được tạo đi kèm với option set_facts’s cacheable, biến có độ ưu tiên cao trong play, nhưng giống như độn ưu tiên của host fact khi chúng đề từ cache
+  - (4): Khi được tạo đi kèm với option set_facts’s cacheable, biến có độ ưu tiên cao trong play, nhưng giống như độ ưu tiên của host fact khi chúng đề từ cache
 - Nói chung, Ansible ưu tiên cho các biến được xác định gần đây hơn, tích cực hơn và có phạm vi rõ ràng hơn. Các biến trong thư mục mặc định bên trong role  dễ bị ghi đè
 
 # Tham khảo 
