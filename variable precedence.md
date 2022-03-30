@@ -54,6 +54,7 @@
 ## 2. role defaults
 - Là file biến mặc định của role, ansible sẽ tự động lấy biến tại đây mà không cần khai báo  
 - Các biến mặc định của ansible được đặt tại  role/defaults/main.yml
+ 
     ![image](image/Screenshot_33.png)
 
 - Tạo một role tên test bằng ansible-galaxy
