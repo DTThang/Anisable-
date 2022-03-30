@@ -251,3 +251,53 @@ name1=thang1
  ![image](image/Screenshot_39.png)
 
 ## 16. block vars (only for tasks in block)
+
+
+## 17. task vars (only for the task)
+
+## 18. include_vars
+- Là biến được khai báo ở trong file và được gọi sử dụng trong task thông qua module include_vars
+- Tạo file  roles/tests/files/include_file.yml chứa nội dung 
+
+      name1: thang13
+
+- Chỉnh sử file roles/tests/tasks/main.yml như sau 
+```
+- include_vars:
+      roles/tests/files/include_file.yml
+- debug:
+      msg: "My name is {{ name1 }}"
+
+```
+- Chạy file playbook 
+ ![image](image/Screenshot_40.png)
+
+
+## 19. set_facts / registered vars
+- Là biến được khai báo thông qua module set_fact trong file task của role 
+- Chỉnh sử file roles/tests/tasks/main.yml như sau 
+```
+---
+# tasks file for roles/tests
+- set_fact:
+      name1: thang14
+- include_vars:
+      roles/tests/files/include_file.yml
+- debug:
+      msg: "My name is {{ name1 }}"
+```
+- Chạy file playbook 
+
+ ![image](image/Screenshot_41.png)
+
+## 20. role (and include_role) params
+
+## 21. include params
+
+## 22. extra vars (for example, -e “user=my_user”)(always win precedence)
+- Là biến được nhập trực tiếp từ dòng lệnh thông qua tham số -e (--extra-vars) và có độ ưu tiên cao nhất.
+- Nhập lệnh
+
+      ansible-playbook  -i inventorys/inventory playbook.yml  -e name1=thang17
+
+ ![image](image/Screenshot_42.png)
