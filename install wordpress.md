@@ -165,7 +165,7 @@ vi wordpress/roles/php/tasks/main.yml
   - tạo database cho wordpress
   - Tạo người dùng datbase cho wordpress
 
-- Tạo file 
+- Chỉnh sửa file  `wordpress/roles/mysql/tasks/main.yml`
 ```
 vi wordpress/roles/mysql/tasks/main.yml
 ```
